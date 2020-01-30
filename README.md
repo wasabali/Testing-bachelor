@@ -1,3 +1,2 @@
 # Sliten
-Hei
-dette er en test
+Testing av programvare
