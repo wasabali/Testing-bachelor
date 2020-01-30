@@ -124,9 +124,42 @@
             }
             
         }
-        function hentSaldi(){
-            if($personnummer = "1334344"){
-                
+        function hentSaldi($personnummer){
+            $konto = array();
+            if($personnummer == "01010122344"){
+                $konto [] = "105010123456";
+                $konto [] = "01010122344";
+                $konto [] = "720";
+                $konto [] = "Lønnskonto";
+                $konto [] = "NOK";
+                return $konto;
+            }
+            else{
+                $konto [] = " ";
+                return $konto;
             }
         }
+        function registrerBetaling($kontoNr, $transaksjon){
+            if($kontoNr == "105010123456"){
+                if($transaksjon->belop <= 0){
+                    return "Feil";
+                }
+                else{
+                    return "OK";
+                }
+            }
+            else{
+                return "Feil";
+            }
+        }
+        
+        /*public function hentBetalinger($personnummer){
+            $transaksjoner = array();
+            if($personnummer == "01010122344"){
+                $avventer = 1;
+                $transaksjoner [] = "105010123456";
+                $transaksjoner [] = ""
+            }
+            else if($personnummer == "01010122355")
+        }*/
 }
