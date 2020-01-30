@@ -111,5 +111,5 @@ class hentTransaksjonerTest extends PHPUnit\Framework\TestCase {
         $this->assertEquals("Lekeland",$konto->transaksjoner[2]->melding);
     }
 
-    
+     
 }
