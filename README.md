@@ -1,2 +1,3 @@
 # Sliten
-sliten
+Hei
+dette er en test
