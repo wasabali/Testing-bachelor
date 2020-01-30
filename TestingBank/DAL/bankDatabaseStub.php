@@ -87,4 +87,46 @@
             }
             return $konto;
         }
-    }
+        
+        function sjekkLoggInn($personnummer, $passord){
+            $sjekkPersonnummer = "01010122344";
+            $passordSjekk = "HeiHei";
+            
+            if($personnummer == $sjekkPersonnummer){
+                if($passord == $passordSjekk){
+                    return "OK";
+                }
+                else{
+                    return "Feil";
+                }
+            }
+            else{
+                return "Feil";
+            }
+        }
+        function hentKonti($personnummer){
+            $konti = array();
+            if($personnummer == "01010122355"){
+                $kontonummer = "33445533";
+                $kontonummer2 = "44554455";
+                $konti[] = $kontonummer;
+                $konti[] = $kontonummer2;
+                return $konti;
+            }
+            if($personnummer == "01010122344"){
+                $kontonummer1 ="55667788";
+                $konti[] = $kontonummer1;
+                return $konti;
+            }
+            else{
+                $konti [] = " "; 
+                return $konti;
+            }
+            
+        }
+        function hentSaldi(){
+            if($personnummer = "1334344"){
+                
+            }
+        }
+}
