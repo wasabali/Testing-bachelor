@@ -153,13 +153,101 @@
             }
         }
         
-        /*public function hentBetalinger($personnummer){
+        public function hentBetalinger($personnummer){
             $transaksjoner = array();
             if($personnummer == "01010122344"){
                 $avventer = 1;
                 $transaksjoner [] = "105010123456";
-                $transaksjoner [] = ""
+                $transaksjoner [] = "205010123456";
             }
-            else if($personnummer == "01010122355")
-        }*/
+            else if($personnummer == "01010122355"){
+                $avventer = 1;
+                $transaksjoner [] = "505010123456";
+            }
+            else{
+                $avventer = 0;
+                $transaksjoner [] = "705010123456";
+            }
+            if($avventer == 1){
+                return $transaksjoner;
+            }
+            else{
+                return $transaksjoner = " ";
+            }
+        }
+        
+        public function utforBetaling($TxID){
+            $kontoNr = array();
+            $belop = 0;
+            $avventer = 1;
+            if($TxID == "1"){
+                $kontoNr[] = "105010123456";
+                $belop = 50;
+                $saldo = 150;
+            }
+            else if($TxID == "2"){
+                $kontoNr[] = "55551166677";
+                $kontoNr [] = "105010123456";
+            }
+            else if($TxID == "3"){
+                $kontoNr [] = "55551166677";
+                $belop = 150;
+                $saldo = 100;
+            }
+            else{
+                return "Feil";
+            }
+            if(count($kontoNr) != 1){
+                return "Feil";
+            }
+            
+            if($saldo < $belop){
+                return "Feil";
+            }
+            else{
+                $avventer = 0;
+                $nySaldo = $saldo - $belop;
+                return "OK";
+            }
+        }
+        
+        public function endreKundeInfo($kunde){
+            $poststed = array();
+            if($kunde->postnr != "4455"){
+                $poststed [] = $kunde->postnr;
+            }
+            if($kunde->fornavn == "Kari" && $kunde->etternavn == "Hansen"){
+                $kunde -> telefonnr = "12345678";
+                return "OK";
+            }
+            else{
+                return "Feil";
+            }
+        }
+        
+        public function hentKundeInfo($personnummer){
+            $kunde = new kunde();
+            $erKunde = false;
+            if($personnummer == "01010122344"){
+                $kunde->fornavn = "Kari";
+                $kunde->etternavn = "Hansen";
+                $kunde->postnr = "4455";
+                $erKunde =true;
+            }   
+            elseif($personnummer == "01010122355"){
+                $kunde->fornavn = "Kari";
+                $kunde->etternavn = "Hansen";
+                $kunde->postnr = "5555";
+                $erKunde =true;
+            }
+            if($kunde->postnr != "4455"){
+                $erKunde = false;
+            }
+            if($erKunde){
+                return $kunde;
+            }
+            else{
+                return "Feil";
+            }
+        }
 }
