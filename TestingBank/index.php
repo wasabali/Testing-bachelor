@@ -1,6 +1,7 @@
 <?php
 include_once 'View/minNavigasjon.php';
 ?>
+
 <br/><br/>
 <div class="container">
     <br/><br/>
@@ -10,5 +11,6 @@ include_once 'View/minNavigasjon.php';
     <a href="View/loggInn.php" class="btn btn-success">Logg inn</a>
     <br/> <br/>
     <div id="feilMeldinger"></div>
+    
 </div>
 

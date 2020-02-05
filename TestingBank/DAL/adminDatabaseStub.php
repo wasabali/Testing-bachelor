@@ -49,7 +49,7 @@ function hentAlleKunder()
         return "Feil";
     }
     
-    function registrerKonto($konto)
+    function registerKonto($konto)
     {
         if($konto->personnummer=="12345678901")
         {
@@ -63,26 +63,41 @@ function hentAlleKunder()
     {
         if($konto->personnummer=="12345678901")
         {
-            
-            return "OK";
+            if($konto->kontonummer == "11221122"){
+                return "OK";
+            }
+            else{
+                return "Feil i kontonummer";
+            }
         }
-        return "Feil";
+        else{
+            return "Feil i personnummer";
+        }
     }
     
     function hentAlleKonti()
     {
         $alleKonti = array();
            $kunde1 = new konto();
-           $kunde1->personnummer ="01010110523";
+           $kunde1->kontonummer ="01010110523";
 
            $alleKonti[]=$kunde1;
            
            $kunde2 = new konto();
-           $kunde2->personnummer ="12345678901";
+           $kunde2->kontonummer ="12345678901";
            
            $alleKonti[]=$kunde2;
            
            return $alleKonti;
+    }
+    
+    function slettKonto($kontonummer){
+        if($kontonummer != "11221122"){
+            return "Feil i kontonummer";
+        }
+        else{
+            return "OK";
+        }
     }
     
         
